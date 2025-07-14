@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import PrivacyPolicyScreen from "./PrivacyPolicy";
 import TermsScreen from "./Terms";
+import ContactScreen from "./Contact";
 // import skootyLogo from "./assets/skooty.png"; // Place your logo in src/assets/
 import "./App.css";
 import "./index.css";
@@ -53,6 +54,9 @@ function SkootyNavbar() {
           <Link to="/privacy" className="text-lg md:text-2xl font-bold transition" style={{ color: COLORS.light.primary }}>
             Privacy Policy
           </Link>
+          <Link to="/contact" className="text-lg md:text-2xl font-bold transition" style={{ color: COLORS.light.primary }}>
+            Contact
+          </Link>
         </div>
       </div>
     </nav>
@@ -61,14 +65,14 @@ function SkootyNavbar() {
 
 function App() {
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  // Show navbar on all pages for consistent navigation
   return (
     <div className="min-h-screen flex flex-col" style={{ background: COLORS.light.surface }}>
-      {/* Show navbar only on home page */}
-      {isHome && <SkootyNavbar />}
+      <SkootyNavbar />
       <Routes>
         <Route path="/privacy" element={<PrivacyPolicyScreen />} />
         <Route path="/terms" element={<TermsScreen />} />
+        <Route path="/contact" element={<ContactScreen />} />
         <Route path="/" element={
           <div className="flex-1 w-full flex flex-col md:flex-row gap-10 items-center justify-between bg-surface rounded-none shadow-none p-60 md:p-60" style={{ background: COLORS.light.surface, minHeight: 'calc(100vh - 64px - 40px)' }}>
             {/* Left: Text Content */}
