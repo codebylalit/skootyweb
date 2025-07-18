@@ -73,7 +73,7 @@ function SkootyNavbar() {
   return (
     <nav
       className="fixed top-0 left-0 w-full z-40 flex items-center bg-white/80 backdrop-blur border-b border-gray-200"
-      style={{ height: "72px" }}
+      style={{ height: "72px", background: COLORS.light.background }}
     >
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 h-full">
         <div className="flex items-center gap-3 h-full">
@@ -123,7 +123,7 @@ function App() {
   return (
     <div
       className="min-h-screen flex flex-col"
-      style={{ background: COLORS.light.surface }}
+      style={{ background: COLORS.light.background }}
     >
       <SkootyNavbar />
       <Routes>
@@ -136,7 +136,7 @@ function App() {
             <div
               className="flex-1 w-full flex flex-col items-center justify-between bg-surface rounded-none shadow-none px-4 md:px-12 py-32 md:py-40"
               style={{
-                background: COLORS.light.surface,
+                background: COLORS.light.background,
                 minHeight: "calc(100vh - 72px - 40px)",
               }}
             >
@@ -149,7 +149,7 @@ function App() {
       {/* Footer */}
       <footer
         className="text-xs text-center pb-4 mt-auto"
-        style={{ color: "#aaa", background: COLORS.light.surface }}
+        style={{ color: "#aaa" }}
       >
         &copy; {new Date().getFullYear()} Skooty. All rights reserved.
       </footer>
@@ -171,7 +171,10 @@ function AppDownloadSection() {
   const [selected, setSelected] = useState("rider");
   const appKeys = ["rider", "driver"];
   return (
-    <div className="w-full max-w-8xl flex flex-col md:flex-row gap-16 items-center justify-center px-4 md:px-12 min-h-[70vh] mt-0 pt-0">
+    <div
+      className="w-full max-w-8xl flex flex-col md:flex-row gap-16 items-center justify-center px-4 md:px-12 min-h-[70vh] mt-0 pt-0"
+      style={{ background: COLORS.light.background }}
+    >
       {/* Left: Info Section */}
       <div className="flex-1 flex flex-col items-start justify-center text-left px-0 md:px-8 md:py-0">
         {/* Toggle Tabs at Top */}
