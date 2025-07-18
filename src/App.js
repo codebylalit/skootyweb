@@ -43,7 +43,6 @@ const COLORS = {
   },
 };
 
-const skootyLogo = "https://via.placeholder.com/48?text=Logo"; // TEMP: Replace with actual logo path
 const riderScreenshot = process.env.PUBLIC_URL + "/Skooty.png";
 const driverScreenshot = process.env.PUBLIC_URL + "/SkootyGo.png";
 const gplayBadge = process.env.PUBLIC_URL + "/gplay.png";
