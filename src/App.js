@@ -100,7 +100,7 @@ function App() {
       {/* Footer */}
       <footer
         className="text-xs text-center pb-4 mt-auto"
-        style={{ color: "#aaa" }}
+        style={{ color: COLORS.light.secondary }}
       >
         &copy; {new Date().getFullYear()} Skooty. All rights reserved.
       </footer>
