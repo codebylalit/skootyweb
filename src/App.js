@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -46,6 +46,28 @@ const COLORS = {
 const skootyLogo = "https://via.placeholder.com/48?text=Logo"; // TEMP: Replace with actual logo path
 const riderScreenshot = process.env.PUBLIC_URL + "/Skooty.png";
 const driverScreenshot = process.env.PUBLIC_URL + "/SkootyGo.png";
+const gplayBadge = process.env.PUBLIC_URL + "/gplay.png";
+
+const APPS = {
+  rider: {
+    name: "Rider",
+    screenshot: riderScreenshot,
+    playUrl:
+      "https://play.google.com/store/apps/details?id=com.heylalit.skooty",
+    description:
+      "Book a ride in seconds, track your driver, and enjoy seamless payments. Skooty Rider is your trusted ride booking app for daily commutes and city travel.",
+    color: COLORS.light.primary,
+  },
+  driver: {
+    name: "Driver",
+    screenshot: driverScreenshot,
+    playUrl:
+      "https://play.google.com/store/apps/details?id=com.heylalit.skootydriver",
+    description:
+      "Drive smart, earn fast! SkootyGo Driver lets you accept ride requests, get paid instantly, and manage your trips with ease. Join the SkootyGo driver community today.",
+    color: COLORS.light.secondary,
+  },
+};
 
 function SkootyNavbar() {
   return (
@@ -112,139 +134,14 @@ function App() {
           path="/"
           element={
             <div
-              className="flex-1 w-full flex flex-col md:flex-row gap-8 items-center justify-between bg-surface rounded-none shadow-none px-4 md:px-12 py-32 md:py-40"
+              className="flex-1 w-full flex flex-col items-center justify-between bg-surface rounded-none shadow-none px-4 md:px-12 py-32 md:py-40"
               style={{
                 background: COLORS.light.surface,
                 minHeight: "calc(100vh - 72px - 40px)",
               }}
             >
-              {/* Left: Text Content */}
-              <div className="flex-1 flex flex-col items-start justify-center text-left px-0 md:px-8 py-6 md:py-0">
-                <Link
-                  to="/"
-                  className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-4 md:mb-6"
-                  style={{
-                    color: COLORS.light.secondary,
-                    fontFamily: "Poppins, sans-serif",
-                    letterSpacing: "-0.04em",
-                  }}
-                >
-                  Skooty
-                </Link>
-                <p
-                  className="text-lg sm:text-2xl md:text-3xl font-semibold mb-4 md:mb-6"
-                  style={{ color: COLORS.light.primary }}
-                >
-                  Your Ride, Your Way
-                </p>
-                <p
-                  className="text-base sm:text-lg md:text-xl mb-6 md:mb-8"
-                  style={{ color: COLORS.light.text, lineHeight: 1.5 }}
-                >
-                  Skooty is your trusted ride booking app, making daily commutes
-                  and city travel easy, safe, and affordable. Book a ride in
-                  seconds, track your driver, and enjoy seamless payments.
-                  Available for all riders and drivers on Android.
-                </p>
-                <ul
-                  className="mb-8 md:mb-10 list-disc pl-5 text-base sm:text-lg md:text-xl font-medium"
-                  style={{ color: COLORS.light.text }}
-                >
-                  <li className="mb-1">Instant ride booking</li>
-                  <li className="mb-1">Live driver tracking</li>
-                  <li className="mb-1">Secure, cashless payments</li>
-                  <li className="mb-1">Professional drivers</li>
-                  <li>24/7 customer support</li>
-                </ul>
-                <div className="flex flex-col sm:flex-row gap-4 w-full">
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.heylalit.skooty"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center font-bold py-4 px-8 rounded-xl transition text-lg shadow-lg hover:scale-105 w-full sm:w-auto"
-                    style={{ background: COLORS.light.primary, color: "#fff" }}
-                  >
-                    <svg
-                      className="w-6 h-6 mr-2"
-                      viewBox="0 0 512 512"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill="white"
-                        d="M325.3 234.3L104.6 13.6C98.2 7.2 89.2 4.7 80.8 7.6c-8.4 2.9-14.1 10.7-14.1 19.6v457.6c0 8.9 5.7 16.7 14.1 19.6 2.2.8 4.5 1.2 6.8 1.2 6.1 0 12.1-2.4 16.5-6.8l220.7-220.7c8.7-8.7 8.7-22.8 0-31.5z"
-                      />
-                      <path
-                        fill="white"
-                        d="M371.6 278.6l-46.3 46.3 92.6 92.6c6.2 6.2 16.4 1.8 16.4-7V151.5c0-8.8-10.2-13.2-16.4-7l-92.6 92.6 46.3 46.3c8.7 8.7 8.7 22.8 0 31.5z"
-                      />
-                    </svg>
-                    Download Skooty Rider App
-                  </a>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.heylalit.skootydriver"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center font-bold py-4 px-8 rounded-xl transition text-lg shadow-lg hover:scale-105 w-full sm:w-auto"
-                    style={{
-                      background: COLORS.light.secondary,
-                      color: "#fff",
-                    }}
-                  >
-                    <svg
-                      className="w-6 h-6 mr-2"
-                      viewBox="0 0 512 512"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill="white"
-                        d="M325.3 234.3L104.6 13.6C98.2 7.2 89.2 4.7 80.8 7.6c-8.4 2.9-14.1 10.7-14.1 19.6v457.6c0 8.9 5.7 16.7 14.1 19.6 2.2.8 4.5 1.2 6.8 1.2 6.1 0 12.1-2.4 16.5-6.8l220.7-220.7c8.7-8.7 8.7-22.8 0-31.5z"
-                      />
-                      <path
-                        fill="white"
-                        d="M371.6 278.6l-46.3 46.3 92.6 92.6c6.2 6.2 16.4 1.8 16.4-7V151.5c0-8.8-10.2-13.2-16.4-7l-92.6 92.6 46.3 46.3c8.7 8.7 8.7 22.8 0 31.5z"
-                      />
-                    </svg>
-                    Download Skooty Driver App
-                  </a>
-                </div>
-              </div>
-              {/* Right: App Screenshots */}
-              <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 px-0 md:px-8 py-6 md:py-0 w-full">
-                <div className="flex flex-col items-center">
-                  <img
-                    src={riderScreenshot}
-                    alt="Skooty Rider App Screenshot"
-                    className="w-56 sm:w-64 md:w-72 h-auto rounded-3xl shadow-2xl border-4 mb-2"
-                    style={{
-                      borderColor: COLORS.light.primary,
-                      background: "#fff",
-                    }}
-                  />
-                  <span
-                    className="mt-2 font-semibold text-base"
-                    style={{ color: COLORS.light.primary }}
-                  >
-                    Rider App
-                  </span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <img
-                    src={driverScreenshot}
-                    alt="Skooty Driver App Screenshot"
-                    className="w-56 sm:w-64 md:w-72 h-auto rounded-3xl shadow-2xl border-4 mb-2"
-                    style={{
-                      borderColor: COLORS.light.secondary,
-                      background: "#fff",
-                    }}
-                  />
-                  <span
-                    className="mt-2 font-semibold text-base"
-                    style={{ color: COLORS.light.secondary }}
-                  >
-                    Driver App
-                  </span>
-                </div>
-              </div>
+              {/* App Toggle */}
+              <AppDownloadSection />
             </div>
           }
         />
@@ -269,3 +166,114 @@ function AppWithRouter() {
 }
 
 export default AppWithRouter;
+
+function AppDownloadSection() {
+  const [selected, setSelected] = useState("rider");
+  const appKeys = ["rider", "driver"];
+  return (
+    <div className="w-full max-w-8xl flex flex-col md:flex-row gap-16 items-center justify-center px-4 md:px-12 min-h-[70vh] mt-0 pt-0">
+      {/* Left: Info Section */}
+      <div className="flex-1 flex flex-col items-start justify-center text-left px-0 md:px-8 md:py-0">
+        {/* Toggle Tabs at Top */}
+        <div className="flex gap-4 mb-8">
+          {appKeys.map((key) => (
+            <button
+              key={key}
+              className={`px-7 py-2 rounded-full font-bold text-lg transition border-2 ${
+                selected === key
+                  ? "bg-orange-600 text-white shadow-md"
+                  : "bg-white text-orange-700"
+              }`}
+              style={{
+                color: selected === key ? "#fff" : APPS[key].color,
+                borderColor: APPS[key].color,
+                background: selected === key ? APPS[key].color : "#fff",
+                boxShadow:
+                  selected === key ? `0 2px 8px ${APPS[key].color}40` : "none",
+              }}
+              onClick={() => setSelected(key)}
+            >
+              {APPS[key].name} App
+            </button>
+          ))}
+        </div>
+        <h1
+          className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-4 md:mb-6"
+          style={{
+            color: COLORS.light.secondary,
+            fontFamily: "Poppins, sans-serif",
+            letterSpacing: "-0.04em",
+          }}
+        >
+          {selected === "rider" ? "Skooty" : "SkootyGo"}
+        </h1>
+        <p
+          className="text-lg sm:text-2xl md:text-3xl font-semibold mb-4 md:mb-6"
+          style={{ color: COLORS.light.primary }}
+        >
+          {selected === "rider"
+            ? "Your Ride, Your Way"
+            : "Drive. Earn. Repeat."}
+        </p>
+        <p
+          className="text-base sm:text-lg md:text-xl mb-6 md:mb-8"
+          style={{ color: COLORS.light.text, lineHeight: 1.5 }}
+        >
+          {APPS[selected].description}
+        </p>
+        {selected === "rider" ? (
+          <ul
+            className="mb-8 md:mb-10 list-disc pl-5 text-base sm:text-lg md:text-xl font-medium"
+            style={{ color: "#3a2a1a" }}
+          >
+            <li className="mb-1">Instant ride booking</li>
+            <li className="mb-1">Live driver tracking</li>
+            <li className="mb-1">Secure, cashless payments</li>
+            <li className="mb-1">Professional drivers</li>
+            <li>24/7 customer support</li>
+          </ul>
+        ) : (
+          <ul
+            className="mb-8 md:mb-10 list-disc pl-5 text-base sm:text-lg md:text-xl font-medium"
+            style={{ color: "#3a2a1a" }}
+          >
+            <li className="mb-1">Instant ride requests</li>
+            <li className="mb-1">Direct, on-the-spot payments</li>
+            <li className="mb-1">Transparent earnings dashboard</li>
+            <li className="mb-1">Low 15% support fee</li>
+            <li>Flexible schedule</li>
+          </ul>
+        )}
+        <a
+          href={APPS[selected].playUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto flex items-center justify-center"
+          style={{ maxWidth: 280 }}
+        >
+          <img
+            src={gplayBadge}
+            alt={`Get Skooty ${APPS[selected].name} on Google Play`}
+            className="w-full h-auto"
+            style={{ minWidth: 120 }}
+          />
+        </a>
+      </div>
+      {/* Right: Both Screenshots Always Visible */}
+      <div className="flex-1 flex flex-row gap-8 items-center justify-center px-0 md:px-8 py-6 md:py-0 w-full">
+        <img
+          src={APPS["rider"].screenshot}
+          alt="Skooty Rider App Screenshot"
+          className="w-56 sm:w-64 md:w-80 h-auto rounded-3xl shadow-2xl border-4 mb-2"
+          style={{ borderColor: COLORS.light.primary, background: "#fff" }}
+        />
+        <img
+          src={APPS["driver"].screenshot}
+          alt="Skooty Driver App Screenshot"
+          className="w-56 sm:w-64 md:w-80 h-auto rounded-3xl shadow-2xl border-4 mb-2"
+          style={{ borderColor: COLORS.light.secondary, background: "#fff" }}
+        />
+      </div>
+    </div>
+  );
+}
