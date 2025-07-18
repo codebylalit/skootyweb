@@ -17,7 +17,6 @@ export default function TermsScreen() {
         <h1
           className="text-4xl md:text-5xl font-extrabold mb-8 text-center"
           style={{
-            color: COLORS.light.secondary,
             fontFamily: "Poppins, sans-serif",
           }}
         >

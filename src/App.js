@@ -82,11 +82,11 @@ function SkootyNavbar() {
             className="text-3xl md:text-4xl font-extrabold tracking-tight"
             style={{
               color: COLORS.light.primary,
-              fontFamily: "Poppins, sans-serif",
+              fontFamily: "Poppins-Medium, sans-serif",
               letterSpacing: "-0.04em",
             }}
           >
-            Skooty
+            skooty
           </Link>
         </div>
         <div className="flex items-center gap-4 md:gap-10 h-full">
